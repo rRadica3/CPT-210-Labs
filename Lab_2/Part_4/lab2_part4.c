@@ -43,6 +43,7 @@
 
 // this is simulated external peripheral register
 unsigned int test_reg32 = 0x00000000;
+unsigned int inversion = 0x00000000;
 
 void main(void)
 {
@@ -70,6 +71,10 @@ void main(void)
   printf("PROBLEM 1: Setting PIE bit\n");
 
   // enter your code here for problem 1
+  reg_value = test_reg32;
+  reg_value |= 0x0001;
+  
+  test_reg32 = reg_value;
 
   printf("    --> Test reg = 0x%08X\n", test_reg32);
   printf("\n");
@@ -82,6 +87,10 @@ void main(void)
   printf("PROBLEM 2: Setting RD bit\n");
 
   // enter your code here for problem 2
+  reg_value = test_reg32;
+  reg_value |= 0x0004;
+  
+  test_reg32 = reg_value;
 
   printf("    --> Test reg = 0x%08X\n", test_reg32);
   printf("\n");
@@ -92,6 +101,10 @@ void main(void)
   printf("PROBLEM 3: Setting CRS bits\n");
 
   // enter your code here for problem 3
+  reg_value = test_reg32;
+  reg_value |= 0x0070;
+  
+  test_reg32 = reg_value;
 
   printf("    --> Test reg = 0x%08X\n", test_reg32);
   printf("\n");
@@ -102,6 +115,10 @@ void main(void)
   printf("PROBLEM 4: Setting A[3:0] bits\n");
 
   // enter your code here for problem 4
+  reg_value = test_reg32;
+  reg_value |= 0xF000;
+  
+  test_reg32 = reg_value;
 
   printf("    --> Test reg = 0x%08X\n", test_reg32);
   printf("\n");
@@ -116,6 +133,19 @@ void main(void)
   printf("PROBLEM 5: Testing bit A2\n");
 
   // enter your code here for problem 5
+  reg_value = test_reg32;
+  
+  reg_value &= 0x4000;
+  
+  if(reg_value == 0x4000)
+  {
+    alt_printf("Bit A2 is 1", 0);
+  }
+  else
+  {
+    alt_printf("Bit A2 is 0", 0);
+  }
+
 
   printf("\n");
 
@@ -125,6 +155,10 @@ void main(void)
   printf("PROBLEM 6: Clearing A[2] bit\n");
 
   // enter your code here for problem 6
+  reg_value = test_reg32;
+  reg_value &= ~0x4000;
+  
+  test_reg32 = reg_value;
 
   printf("    --> Test reg = 0x%08X\n", test_reg32);
   printf("\n");
@@ -135,6 +169,11 @@ void main(void)
   printf("PROBLEM 7: Clear CRS bits and set PRS bits\n");
 
   // enter your code here for problem 7
+  reg_value = test_reg32;
+  reg_value &= ~0x0070;
+  reg_value |= 0x0E00;
+  
+  test_reg32 = reg_value;
 
   printf("    --> Test reg = 0x%08X\n", test_reg32);
   printf("\n");
@@ -151,6 +190,23 @@ void main(void)
   printf("PROBLEM 8: Testing bit A2\n");
 
   // enter your code here for problem 8
+  reg_value = test_reg32;
+  inversion = reg_value;
+  
+  inversion &= 0x4000;
+  
+  if(inversion == 0x4000)
+  {
+    alt_printf("Bit A2 is 1 so clearing it", 0);
+    reg_value &= ~0x4000;
+  }
+  else
+  {
+    alt_printf("Bit A2 is 0 so setting it", 0);
+    reg_value |= 0x4000;
+  }
+  
+  test_reg32 = reg_value;
 
   printf("    --> Test reg = 0x%08X\n", test_reg32);
   printf("\n");
@@ -167,7 +223,24 @@ void main(void)
   // *********************************************************************
   printf("PROBLEM 9: Testing bit MD & setting mode bits\n");
 
-  // enter your code here for problem 8
+  // enter your code here for problem 9
+  reg_value = test_reg32;
+  inversion = reg_value;
+  
+  inversion &= 0x0008;
+  
+  if(inversion == 0x0008)
+  {
+    alt_printf("Bit MD=0, setting mode=10", 0);
+    reg_value |= 0x0100;
+  }
+  else
+  {
+    alt_printf("Bit MD=1, setting mode=11", 0);
+    reg_value |= 0x0100;;
+  }
+  
+  test_reg32 = reg_value;
 
   printf("    --> Test reg = 0x%08X\n", test_reg32);
   printf("\n");
@@ -178,6 +251,7 @@ void main(void)
   printf("PROBLEM 10: Clearing all bits\n");
 
   // enter your code here for problem 10
+  test_reg32 = 0x0000;
 
   printf("    --> Test reg = 0x%08X\n", test_reg32);
   printf("\n");
