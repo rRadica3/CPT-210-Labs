@@ -2,7 +2,7 @@
 #***************************** Python Source Code  ***************************
 #*****************************************************************************
 #
-#  DESIGNER NAME:  
+#  DESIGNER NAME:  Samuel Acquaviva
 #
 #      FILE NAME:  lab2_part5.c
 #
@@ -43,6 +43,10 @@ def main():
   print(f"PROBLEM 1: Setting PIE bit")
 
   # enter your code here for problem 1
+  reg_value = test_reg32
+  reg_value |= 0x0001
+  
+  test_reg32 = reg_value
 
   print(f"    --> Test reg = 0x{test_reg32:08X}")
   print()
@@ -55,6 +59,10 @@ def main():
   print(f"PROBLEM 2: Setting RD bit")
 
   # enter your code here for problem 2
+  reg_value = test_reg32
+  reg_value |= 0x0004
+  
+  test_reg32 = reg_value
 
   print(f"    --> Test reg = 0x{test_reg32:08X}")
   print()
@@ -65,6 +73,10 @@ def main():
   print(f"PROBLEM 3: Setting CRS bits")
 
   # enter your code here for problem 3
+  reg_value = test_reg32;
+  reg_value |= 0x0070;
+  
+  test_reg32 = reg_value;
 
   print(f"    --> Test reg = 0x{test_reg32:08X}")
   print()
@@ -75,6 +87,10 @@ def main():
   print(f"PROBLEM 4: Setting A[3:0] bits")
 
   # enter your code here for problem 4
+  reg_value = test_reg32
+  reg_value |= 0xF000
+  
+  test_reg32 = reg_value
 
   print(f"    --> Test reg = 0x{test_reg32:08X}")
   print()
@@ -89,6 +105,14 @@ def main():
   print(f"PROBLEM 5: Testing bit A2")
 
   # enter your code here for problem 5
+  reg_value = test_reg32
+  
+  reg_value &= 0x4000
+  
+  if(reg_value == 0x4000):
+    print("Bit A2 is 1")
+  else:
+    print("Bit A2 is 0")
 
   print()
 
@@ -98,6 +122,10 @@ def main():
   print(f"PROBLEM 6: Clearing A[2] bit")
 
   # enter your code here for problem 6
+  reg_value = test_reg32
+  reg_value &= ~0x4000
+  
+  test_reg32 = reg_value
 
   print(f"    --> Test reg = 0x{test_reg32:08X}")
   print()
@@ -108,6 +136,11 @@ def main():
   print(f"PROBLEM 7: Clear CRS bits and set PRS bits")
 
   # enter your code here for problem 7
+  reg_value = test_reg32
+  reg_value &= ~0x0070
+  reg_value |= 0x0E00
+  
+  test_reg32 = reg_value
 
   print(f"    --> Test reg = 0x{test_reg32:08X}")
   print()
@@ -124,7 +157,21 @@ def main():
   print(f"PROBLEM 8: Testing bit A2")
 
   # enter your code here for problem 8
-
+  reg_value = test_reg32
+  inversion = reg_value
+  
+  inversion &= 0x4000
+  
+  if(inversion == 0x4000):
+    print("Bit A2 is 1 so clearing it");
+    reg_value &= ~0x4000
+  else:
+    print("Bit A2 is 0 so setting it")
+    reg_value |= 0x4000
+  
+  test_reg32 = reg_value
+  
+  print(f"    --> Test reg = 0x{test_reg32:08X}")
   print()
 
 
@@ -139,7 +186,20 @@ def main():
   # *********************************************************************
   print(f"PROBLEM 9: Testing bit MD & setting mode bits")
 
-  # enter your code here for problem 8
+  # enter your code here for problem 9
+  reg_value = test_reg32
+  inversion = reg_value
+  
+  inversion &= 0x0008
+  
+  if(inversion == 0x0008):
+    print("Bit MD=0, setting mode=10")
+    reg_value |= 0x0100
+  else:
+    print("Bit MD=1, setting mode=11")
+    reg_value |= 0x0100
+  
+  test_reg32 = reg_value
 
   print(f"    --> Test reg = 0x{test_reg32:08X}")
   print()
@@ -150,6 +210,7 @@ def main():
   print(f"PROBLEM 10: Clearing all bits")
 
   # enter your code here for problem 10
+  test_reg32 = 0x0000
 
   print(f"    --> Test reg = 0x{test_reg32:08X}")
   print()

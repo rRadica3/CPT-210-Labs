@@ -72,51 +72,52 @@ union_32    g_union_var;
 
 int main(void)
 {
-
+  g_union_var.LA = 0x12345678; //Initialize long int
+  
   printf("\e[1;1H\e[2J \n"); //Clear screen and home cursor
-  printf("CPT210 Raspberry Pi C Data Type Tester\n\r", 0);
-  printf("----------------------------------------\n\r", 0);
-  printf(" unsigned long int is 0x%x bytes\r\n", sizeof(g_struct_var.LA));
-  printf("   signed long int is 0x%x bytes\r\n", sizeof(g_struct_var.LB));
-  printf("unsigned short int is 0x%x bytes\r\n", sizeof(g_struct_var.SA[0]));
-  printf("  signed short int is 0x%x bytes\r\n", sizeof(g_struct_var.SB[0]));
-  printf("      unsigned int is 0x%x bytes\r\n", sizeof(g_struct_var.IA[0]));
-  printf("        signed int is 0x%x bytes\r\n", sizeof(g_struct_var.IB[0]));
-  printf("     unsigned char is 0x%x bytes\r\n", sizeof(g_struct_var.CA[0]));
-  printf("       signed char is 0x%x bytes\r\n", sizeof(g_struct_var.CB[0]));
+  printf("CPT210 Raspberry Pi C Data Type Tester\n\r");
+  printf("----------------------------------------\n\r");
+  printf(" unsigned long int is 0x%lx bytes\n", sizeof(g_struct_var.LA));
+  printf("   signed long int is 0x%lx bytes\n", sizeof(g_struct_var.LB));
+  printf("unsigned short int is 0x%lx bytes\n", sizeof(g_struct_var.SA[0]));
+  printf("  signed short int is 0x%lx bytes\n", sizeof(g_struct_var.SB[0]));
+  printf("      unsigned int is 0x%lx bytes\n", sizeof(g_struct_var.IA[0]));
+  printf("        signed int is 0x%lx bytes\n", sizeof(g_struct_var.IB[0]));
+  printf("     unsigned char is 0x%lx bytes\n", sizeof(g_struct_var.CA[0]));
+  printf("       signed char is 0x%lx bytes\n", sizeof(g_struct_var.CB[0]));
   
   printf("\n");
-  printf("The structure is 0x%x bytes\r\n", sizeof(g_struct_var));
-  printf("    The union is 0x%x bytes\r\n", sizeof(g_union_var));
+  printf("The structure is 0x%x bytes\n", sizeof(g_struct_var));
+  printf("    The union is 0x%x bytes\n", sizeof(g_union_var));
   printf("\n");
   
-  printf(" union unsigned long int LA is 0x%lX\r\n", g_union_var.LA);
-  printf("   union signed long int LB is 0x%lX\r\n", g_union_var.LB);
+  printf(" union unsigned long int LA is 0x%lX\n", g_union_var.LA);
+  printf("   union signed long int LB is 0x%lX\n", g_union_var.LB);
   printf("\n");
   
-  printf(" union unsigned short int SA[0] is 0x%X\r\n", g_union_var.SA[0]);
-  printf("   union signed short int SA[1] is 0x%X\r\n", g_union_var.SA[1]);
-  printf(" union unsigned short int SB[0] is 0x%X\r\n", g_union_var.SB[0]);
-  printf("   union signed short int SB[1] is 0x%X\r\n", g_union_var.SB[1]);
+  printf(" union unsigned short int SA[0] is 0x%X\n", g_union_var.SA[0]);
+  printf("   union signed short int SA[1] is 0x%X\n", g_union_var.SA[1]);
+  printf(" union unsigned short int SB[0] is 0x%X\n", g_union_var.SB[0]);
+  printf("   union signed short int SB[1] is 0x%X\n", g_union_var.SB[1]);
   printf("\n");
   
-  printf(" union unsigned int IA is 0x%X\r\n", g_union_var.IA);
-  printf("   union signed int IB is 0x%X\r\n", g_union_var.IB);
+  printf(" union unsigned int IA is 0x%X\n", g_union_var.IA);
+  printf("   union signed int IB is 0x%X\n", g_union_var.IB);
   printf("\n");
   
-  printf(" union unsigned char CA[0] is 0x%X\r\n", g_union_var.CA[0]);
-  printf(" union unsigned char CA[1] is 0x%X\r\n", g_union_var.CA[1]);
-  printf(" union unsigned char CA[2] is 0x%X\r\n", g_union_var.CA[2]);
-  printf(" union unsigned char CA[3] is 0x%X\r\n", g_union_var.CA[3]);
+  printf(" union unsigned char CA[0] is 0x%X\n", g_union_var.CA[0]);
+  printf(" union unsigned char CA[1] is 0x%X\n", g_union_var.CA[1]);
+  printf(" union unsigned char CA[2] is 0x%X\n", g_union_var.CA[2]);
+  printf(" union unsigned char CA[3] is 0x%X\n", g_union_var.CA[3]);
   printf("\n");
   
-  printf(" union signed char CB[0] is 0x%X\r\n", g_union_var.CB[0]);
-  printf(" union signed char CB[1] is 0x%X\r\n", g_union_var.CB[1]);
-  printf(" union signed char CB[2] is 0x%X\r\n", g_union_var.CB[2]);
-  printf(" union signed char CB[3] is 0x%X\r\n", g_union_var.CB[3]);
+  printf(" union signed char CB[0] is 0x%X\n", g_union_var.CB[0]);
+  printf(" union signed char CB[1] is 0x%X\n", g_union_var.CB[1]);
+  printf(" union signed char CB[2] is 0x%X\n", g_union_var.CB[2]);
+  printf(" union signed char CB[3] is 0x%X\n", g_union_var.CB[3]);
   printf("\n");
   printf("\n");
   
-  printf("*** Program Terminated ***\n\r", 0);
+  printf("*** Program Terminated ***\n\r");
 
 } /* main */

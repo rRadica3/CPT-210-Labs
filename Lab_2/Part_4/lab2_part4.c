@@ -2,7 +2,7 @@
 //*****************************    C Source Code    ***************************
 //*****************************************************************************
 //
-//  DESIGNER NAME:  
+//  DESIGNER NAME:  Samuel Acquaviva
 //
 //       LAB NAME:  Lab 2, part 4
 //
@@ -58,7 +58,7 @@ void main(void)
   printf("---------------------------------------------------\n");
 
   // Display the size of the test register
-  printf(" The size of the test reg is 0x%X bytes\n", sizeof(test_reg32));
+  printf(" The size of the test reg is 0x%lX bytes\n", sizeof(test_reg32));
 
   // Display the value of the test register
   printf("The starting value of test reg is 0x%08X\n", test_reg32);
@@ -139,11 +139,11 @@ void main(void)
   
   if(reg_value == 0x4000)
   {
-    alt_printf("Bit A2 is 1", 0);
+    printf("Bit A2 is 1");
   }
   else
   {
-    alt_printf("Bit A2 is 0", 0);
+    printf("Bit A2 is 0");
   }
 
 
@@ -197,12 +197,12 @@ void main(void)
   
   if(inversion == 0x4000)
   {
-    alt_printf("Bit A2 is 1 so clearing it", 0);
+    printf("Bit A2 is 1 so clearing it");
     reg_value &= ~0x4000;
   }
   else
   {
-    alt_printf("Bit A2 is 0 so setting it", 0);
+    printf("Bit A2 is 0 so setting it");
     reg_value |= 0x4000;
   }
   
@@ -231,12 +231,12 @@ void main(void)
   
   if(inversion == 0x0008)
   {
-    alt_printf("Bit MD=0, setting mode=10", 0);
+    printf("Bit MD=0, setting mode=10");
     reg_value |= 0x0100;
   }
   else
   {
-    alt_printf("Bit MD=1, setting mode=11", 0);
+    printf("Bit MD=1, setting mode=11");
     reg_value |= 0x0100;;
   }
   
