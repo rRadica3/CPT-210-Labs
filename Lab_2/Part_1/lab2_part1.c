@@ -11,7 +11,9 @@
 //-----------------------------------------------------------------------------
 //
 // DESCRIPTION:
-//    This code provides ... <== FINISH ADDING DESCRIPTION OF WHAT THE CODE DOES
+//    This code provides a struct and a union for multiple different
+//    data types. Then, the main method tests and outputs the size of 
+//    each data type. 
 //
 //*****************************************************************************
 //*****************************************************************************
@@ -74,7 +76,7 @@ int main(void)
 {
   g_union_var.LA = 0x12345678; //Initialize long int
   
-  printf("\e[1;1H\e[2J \n"); //Clear screen and home cursor
+  printf("\e[1;1H\e[2J \n");   //Clear screen and home cursor
   printf("CPT210 Raspberry Pi C Data Type Tester\n\r");
   printf("----------------------------------------\n\r");
   printf(" unsigned long int is 0x%lx bytes\n", sizeof(g_struct_var.LA));
