@@ -1,0 +1,28 @@
+==68281== Memcheck, a memory error detector
+==68281== Copyright (C) 2002-2022, and GNU GPL'd, by Julian Seward et al.
+==68281== Using Valgrind-3.19.0 and LibVEX; rerun with -h for copyright info
+==68281== Command: ./null
+==68281== Parent PID: 1931
+==68281== 
+==68281== Invalid read of size 4
+==68281==    at 0x120764: main (null.c:10)
+==68281==  Address 0x0 is not stack'd, malloc'd or (recently) free'd
+==68281== 
+==68281== 
+==68281== Process terminating with default action of signal 11 (SIGSEGV)
+==68281==  Access not within mapped region at address 0x0
+==68281==    at 0x120764: main (null.c:10)
+==68281==  If you believe this happened as a result of a stack
+==68281==  overflow in your program's main thread (unlikely but
+==68281==  possible), you can try to increase the size of the
+==68281==  main thread stack using the --main-stacksize= flag.
+==68281==  The main thread stack size used in this run was 8388608.
+==68281== 
+==68281== HEAP SUMMARY:
+==68281==     in use at exit: 0 bytes in 0 blocks
+==68281==   total heap usage: 0 allocs, 0 frees, 0 bytes allocated
+==68281== 
+==68281== All heap blocks were freed -- no leaks are possible
+==68281== 
+==68281== For lists of detected and suppressed errors, rerun with: -s
+==68281== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 0 from 0)
